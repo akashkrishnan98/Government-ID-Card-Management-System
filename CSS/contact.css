@@ -1,0 +1,76 @@
+section#contact {
+	
+	background:#ede3f5;
+	display:block;
+	width:600px;
+	padding:20px;
+	border: solid 1px #f1f1f1;
+	font-family: 'Patua One', sans serif;
+}
+
+#contact p{font-size: 16px; color: #2b0350;
+}
+
+.cform-text {width: 400px;
+}
+
+#contact input[type=text], select {
+	height: 3.0em;
+}
+.cform-headers {
+	text-align: left;
+	width: 410px;
+	position: relative;
+}
+
+select {
+	background: #f1f1f1;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+	width: 410px;
+	vertical-align: middle;
+}
+
+#contact input[type=text], textarea {
+	background: #f1f1f1;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	width: 400px;
+	text-align: left;
+	vertical-align: middle;
+}
+#contact input[type=text]:focus, textarea:focus, select:focus {
+	background: #e5e5e5;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	transition: background 0.25 ease-in;
+	-moz-transition: background 0.25 ease-in;
+	-webkit-transition: background 0.25 ease-in;
+}
+
+input[type=submit] {
+	
+	color: #fff;
+	width: 185px;
+	height: 60px;
+	text-shadow: none;
+	font-size: 1.3125em;
+	padding:0.5em;
+	letter-spacing: 0.05em;
+	margin: 0 0 20px 0;
+	display: block;
+	border: 0;
+	text-transform: none;
+	background: #2b0350 !important;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+
+}
+
+h1{color:#1b072e; padding-bottom: 40px;padding-top: 20px;}

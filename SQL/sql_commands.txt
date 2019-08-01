@@ -1,0 +1,103 @@
+create table aadhaar(aadhaar_number bigint(12),
+		full_name varchar(25),
+		dob date,
+		address varchar(50),
+		phone_num bigint(10),
+		gender char(1),
+		constraint pk_ad primary key(aadhaar_number));
+
+create table pan(permanent_account_number bigint(10),
+		aadhaar_number bigint(12),
+		constraint pk_pan primary key(permanent_account_number),
+		constraint fk_pan_ad foreign key(aadhaar_number) references aadhaar(aadhaar_number) on delete cascade,
+		constraint uq_pan_ad unique(aadhaar_number));
+
+create table passport(passport_number varchar(8),
+		aadhaar_number bigint(12),
+		permanent_account_number bigint(10),
+		place_of_birth varchar(15),
+		date_of_issue date,
+		date_of_expiry date,
+		constraint pk_pass primary key(passport_number),
+		constraint fk_pass_ad foreign key(aadhaar_number) references aadhaar(aadhaar_number) on delete cascade,
+		constraint fk_pass_pan foreign key(permanent_account_number) references pan(permanent_account_number) on delete cascade,
+		constraint uq_pass_pan_ad unique(aadhaar_number));
+
+create table dl(dl_number varchar(15),
+		aadhaar_number bigint(12),
+		constraint pk_dl_num primary key(dl_number),
+		constraint fk_dl_ad foreign key(aadhaar_number) references aadhaar(aadhaar_number) on delete cascade,
+		constraint uq_dl_ad unique(aadhaar_number));
+
+create table dl_cov(dl_number varchar(15),
+		choice_of_vehicle varchar(6),
+		valid_to date,
+		constraint pk_dl_cov primary key(dl_number,choice_of_vehicle),
+		constraint fk_cov_dl foreign key(dl_number) references dl(dl_number) on delete cascade);
+
+create table voters(voters_id varchar(10),
+		father_name varchar(25),		
+		aadhaar_number bigint(12),		
+		constraint pk_vot primary key(voters_id),
+		constraint fk_vot_ad foreign key(aadhaar_number) references aadhaar(aadhaar_number) on delete cascade,
+		constraint uq_vot_ad unique(aadhaar_number);
+
+create table rc(registration_number varchar(10),
+		dl_number varchar(15),
+		cov varchar(6),
+		engine varchar(10),
+		vehicle_model varchar(10),
+		vehicle_color varchar(7),
+		constraint pk_rc primary key(registration_number),
+		constraint fk_rc_dl foreign key(dl_number,cov) references dl_cov(dl_number,choice_of_vehicle) on delete cascade);
+
+
+create view details
+ 	as select a.aadhaar_number, a.full_name, p.permanent_account_number, v.voters_id, d.dl_number, ps.passport_number, ps.date_of_issue, ps.date_of_expiry,a.dob,ps.place_of_birth,a.address,a.phone_num,a.gender
+	from aadhaar a
+ 	LEFT OUTER JOIN voters v 
+      	ON a.aadhaar_number = v.aadhaar_number
+	LEFT OUTER JOIN pan p 
+      	ON a.aadhaar_number = p.aadhaar_number
+	LEFT OUTER JOIN dl d 
+      	ON a.aadhaar_number = d.aadhaar_number
+	LEFT OUTER JOIN passport ps
+      	ON a.aadhaar_number = ps.aadhaar_number
+		
+
+
+create view details
+ 	as select a.aadhaar_number, a.full_name, p.permanent_account_number, v.voters_id, d.dl_number, ps.passport_number, ps.date_of_issue, ps.date_of_expiry,a.dob,ps.place_of_birth,a.address,a.phone_num,a.gender
+	from aadhaar a
+ 	LEFT JOIN voters v 
+      	ON a.aadhaar_number = v.aadhaar_number
+	LEFT JOIN pan p 
+      	ON a.aadhaar_number = p.aadhaar_number
+	LEFT JOIN dl d 
+      	ON a.aadhaar_number = d.aadhaar_number
+	LEFT JOIN passport ps
+      	ON a.aadhaar_number = ps.aadhaar_number
+
+
+
+
+
+create view registration
+ 	as select a.aadhaar_number, a.full_name, d.dl_number, r.registration_number, r.cov, r.engine, r.vehicle_model, r.vehicle_color
+	from aadhaar a
+	LEFT JOIN dl d 
+      	ON a.aadhaar_number = d.aadhaar_number
+	LEFT JOIN rc r
+      	ON d.dl_number = r.dl_number
+
+DELIMITER $$
+create trigger passport_date_conflict BEFORE INSERT ON passport for each row
+begin
+    if (NEW.date_of_expiry < NEW.date_of_issue) then
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'end_date cannot be earlier than start_date';
+    end if;
+end$$
+		
+
+
+select YEAR(curdate())-YEAR(dob) as age from aadhaar

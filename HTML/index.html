@@ -1,0 +1,487 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>3D Contact Form - A simple PHP contact form with a 3D effect</title>
+	
+	<meta name="description" content="This is a 3D contact form made with HTML, CSS and PHP. It's easy to customize and implement in any website with minimal programming knowledge.">
+	<meta name="author" content="We Sell Design">
+	<meta name="copyright" content="We Sell Design">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2013-11-02T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#EFEFEF;color:#1C140D;}
+		::-moz-selection{background:#CBE86B;color:#1C140D;}
+		::selection{background:#CBE86B;color:#1C140D;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#889C48;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #CBE86B, #889C48);
+			  background-image: -ms-linear-gradient(top, #CBE86B, #889C48);
+			  background-image: -webkit-gradient(linear, 0 0, 0 CBE86B%, from(#F2E9E1), to(#889C48));
+			  background-image: -webkit-linear-gradient(top, #CBE86B, #889C48);
+			  background-image: -o-linear-gradient(top, #CBE86B, #889C48);
+			  background-image: linear-gradient(top, #CBE86B, #889C48);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CBE86B', endColorstr='#889C48', GradientType=0);
+			  border-color: #889C48 #889C48 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #CBE86B #CBE86B #bfbfbf;
+		  background-color: #889C48;
+		}
+		hr{border-top:1px solid #CCCCCC;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#F2E9E1;color:#1C140D;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #FFF6ED;-moz-text-shadow:1px 1px 0px #FFF6ED;text-shadow:1px 1px 0px #FFF6ED;}
+		#documenter_sidebar ul{border-top:1px solid #D1C9C2;}
+		#documenter_sidebar ul a{border-top:1px solid #FFF6ED;border-bottom:1px solid #D1C9C2;color:#1C140D;}
+		#documenter_sidebar ul a:hover{background:#CBE86B;color:#1C140D;border-top:1px solid #CBE86B;}
+		#documenter_sidebar ul a.current{background:#CBE86B;color:#1C140D;border-top:1px solid #CBE86B;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-3d-contact-form">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#files" title="Files">Files</a></li>
+			<li><a href="#implementing_the_form" title="Implementing the form">Implementing the form</a></li>
+			<li><a href="#settings" title="Settings">Settings</a></li>
+			<li><a href="#adding_a_new_field" title="Adding a new field">Adding a new field</a></li>
+			<li><a href="#captcha" title="Captcha">Captcha</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright We Sell Design 2013<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>3D Contact Form</h1>
+	<h2>A simple PHP contact form with a 3D effect</h2>
+	<div id="documenter_buttons">
+		<a href="http://www.weselldesign.com/demo/code/contact/contact.html" class="btn btn-primary btn-large">Demo</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 11/02/2013</li>
+	<li>latest update: 11/02/2013</li>
+	<li>by: We Sell Design</li>
+	<li><a href="http://www.weselldesign.com/">www.weselldesign.com/</a></li>
+	<li>email: <a href="mailto:&#99;&#114;&#97;&#122;&#121;&#108;&#101;&#97;&#102;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#114;&#97;&#122;&#121;&#108;&#101;&#97;&#102;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+	<p>A simple PHP contact form with a 3D effect</p>
+	</section>
+	
+	<section id="files">
+	<div class="page-header"><h3>Files</h3><hr class="notop"></div>
+<p>
+	This contact form is made using HTML, PHP and CSS. The file structure needs to be kept in order to ensure the form is working properly.&nbsp;</p>
+<h2>
+	File Structure</h2>
+<p>
+	<strong>Base folder </strong></p>
+<p>
+	|_ <strong>CSS</strong></p>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |_ contact.css</p>
+<p>
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |_ bootstrap.css</p>
+<p>
+	|_ contact.html</p>
+<p>
+	|_ thankyou.html</p>
+<p>
+	|_ error.html</p>
+<p>
+	&nbsp;</p>
+<p>
+	The contact.html file includes the form itself.</p>
+<p>
+	The thankyou,html file is the file that is loaded if the form validates and sends the message.</p>
+<p>
+	The error.html file is the file that is loaded if the form fails to validate.</p>
+<p>
+	The contact.css file includes most of the styles that apply to the form. You can customize your form by customizing this file.</p>
+<p>
+	The bootstrap.css file includes additional styles. This file is not absolutely necessary because you will implement this form on your website and the form will inherit the standard styles (paragraph, link) from you main CSS file.</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="implementing_the_form">
+	<div class="page-header"><h3>Implementing the form</h3><hr class="notop"></div>
+<p>
+	To implement the form on your website, just copy the file structure as it is, <strong>except the contact.html file</strong>. Just to be clear the files thankyou.html and error.html need to be in the same folder as the file you will implement your form on (let&#39;s say you will add the form in the <strong>contact-us.html </strong>file; <strong>thankyou.html </strong>and <strong>error.html </strong>need to be in the same folder as this file). Also the <strong>contact.php</strong> file needs to be in the same folder, as well as the CSS folder with the 2 styling files.</p>
+<p>
+	Open the <strong>contact.html </strong>file in a code editor. If you do not have one, Notepad is good enough. You should see something like this (after the opening&nbsp;<strong>&lt;body&gt;</strong> tag) :</p>
+<pre class="prettyprint lang-html linenums">
+    &lt;!--Contact form start--&gt;
+    &lt;div align=&quot;center&quot;&gt;
+    &lt;section id=&quot;contact&quot;&gt;
+        &lt;h1&gt;Contact us now!&lt;/h1&gt;
+        &lt;p&gt;You can contact us using the contact form below.&lt;/p&gt;
+              &lt;form action=&quot;contact.php&quot; method=&quot;post&quot; class=&quot;cform-form&quot;&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your name&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot; placeholder=&quot;Your Email*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Phone*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;select name=&quot;subject&quot;&gt;
+                          &lt;option value=&quot;Support&quot;&gt;Support&lt;/option&gt;
+                          &lt;option value=&quot;Question&quot;&gt;Question&lt;/option&gt;
+                          &lt;option value=&quot;Report a Bug&quot;&gt;Report a Bug&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;spam&quot; placeholder=&quot;Anti-spam* : 4+3=?&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Enter the code&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;textarea name=&quot;comments&quot; cols=&quot;40&quot; rows=&quot;10&quot; title=&quot;Drop us a line.&quot; placeholder=&quot;Your comment here&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;
+                   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Send message&quot;&gt;&lt;/p&gt;
+              &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;!--Contact form end--&gt;</pre>
+<p>
+	Copy this text (between these comment tags :&nbsp;<span style="line-height: 19px;">&lt;!--Contact form start--&gt; and&nbsp;</span><span style="line-height: 19px;">&lt;!--Contact form end--&gt;</span>). This is the form itself.&nbsp;</p>
+<p>
+	Now open the file on your website you want to place the code in and paste the code you just copied in the place you need / want the form to be. For example if you want to include a contact form in, let&#39;s say, <strong>contact-us.html</strong> file on your website, just open the file, go where you need to place the contact form and paste the code.</p>
+<p>
+	After you place the form you need to make sure, the styling for the form is loaded. So let&#39;s say we are working with the same &quot;<strong>contact-us.html</strong>&quot; file, you need to implement somewhere in the &lt;head&gt; section (between &lt;head&gt; and &lt;/head&gt;) the loading arguments for the styles :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+    &lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;css/contact.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&#39;http://fonts.googleapis.com/css?family=Patua+One&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;</pre>
+<p>
+	These lines load the CSS stylings for the form as well as a Google Font the form is using, <strong>Patua One</strong>. If you want the form to use another Google font, you will need to edit the contact.css file and replace the lines including the Patua One font with your own.</p>
+<p>
+	That&#39;s about it for the implementation part. Now see the <strong>Settings </strong>section for the form configuration.</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="settings">
+	<div class="page-header"><h3>Settings</h3><hr class="notop"></div>
+<p>
+	In order to make the form work, you need to customize some settings. These settings need to be made to the <strong>contact.php</strong> file. This is the file that handles the actual processing of the information collected from your form and sends the mail.</p>
+<p>
+	Just open the file with a code editor. If you don&#39;t have one, Notepad is enough. You should see this :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+&lt;?
+$mailto = &#39;&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#105;&#108;&#112;&#114;&#111;&#118;&#105;&#100;&#101;&#114;&#46;&#99;&#111;&#109;&#39; ;
+$emailsubject = &quot;New message from Your Website&quot; ;
+$formurl = &quot;contact.html&quot; ;
+$errorurl = &quot;error.html&quot; ;
+$thankyouurl = &quot;thankyou.html&quot; ;
+// -------------------- END OF CONFIGURABLE SECTION ---------------
+$name = $_POST[&#39;name&#39;] ;
+$email = $_POST[&#39;email&#39;] ;
+$subject = $_POST[&#39;subject&#39;] ;
+$phone = $_POST[&#39;phone&#39;] ;
+$comments = $_POST[&#39;comments&#39;] ;
+$spam=$_POST[&#39;spam&#39;] ;
+$http_referrer = getenv( &quot;HTTP_REFERER&quot; );
+
+if (!isset($_POST[&#39;email&#39;])) {
+header( &quot;Location: $formurl&quot; );
+exit ;
+}
+if (empty($name) || empty($email) || empty($comments) || $spam!=&quot;7&quot;) {
+   header( &quot;Location: $errorurl&quot; );
+   exit ;
+}
+
+$name = strtok( $name, &quot;\r\n&quot; );
+$email = strtok( $email, &quot;\r\n&quot; );
+$phone = strtok( $phone, &quot;\r\n&quot; );
+if (get_magic_quotes_gpc()) {
+$comments = stripslashes( $comments );
+}
+
+$messageproper =
+
+&quot;---------- Your Website Name message ----------\n\n&quot; . &quot;\nSent by : &quot; . $name . &quot;\nEmail : &quot; . $email . &quot;\nSubject : &quot; . $subject . &quot;\nPhone : &quot; . $phone . &quot;\n\n\nMessage : &quot; . $comments;
+
+mail($mailto, $emailsubject, $messageproper, &quot;From: \&quot;$name\&quot; &lt;$email&gt;\r\nReply-To: \&quot;$name\&quot; &lt;$email&gt;\r\nX-Mailer: chfeedback.php 2.04&quot; );
+
+header( &quot;Location: $thankyouurl&quot; );
+exit ;
+?&gt;</pre>
+<div>
+	You need to edit the first lines :</div>
+<div>
+	&nbsp;</div>
+<div>
+	<pre class="prettyprint lang-php linenums">
+$mailto = &#39;&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#105;&#108;&#112;&#114;&#111;&#118;&#105;&#100;&#101;&#114;&#46;&#99;&#111;&#109;&#39; ;</pre>
+	<p>
+		Just edit&nbsp;<strong>&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#105;&#108;&#112;&#114;&#111;&#118;&#105;&#100;&#101;&#114;&#46;&#99;&#111;&#109;</strong> with your email. This is the email the form will send the message to.</p>
+</div>
+<pre class="prettyprint lang-php linenums">
+$emailsubject = &quot;New message from Your Website&quot; ;</pre>
+<p>
+	Edit&nbsp;<strong>New message from Your Website</strong> with your own text. This is the subject of the email being sent.</p>
+<pre class="prettyprint lang-php linenums">
+$formurl = &quot;contact.html&quot; ;</pre>
+<p>
+	Edit <strong>contact.html </strong>with the name of the file that includes the contact form. In our example the name is <strong>contact-us.html</strong>, but on your website it might be different.</p>
+<p>
+	Towards the end of the contact.php file you will find this text :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+---------- Your Website Name message ----------\n\n</pre>
+<p>
+	You can replace it with your own text. This is a separator in the mail itself. Just test the email form one yourself and you will see what it does.</p>
+<p>
+	That&#39;s about it.</p>
+</section>
+<section id="adding_a_new_field">
+	<div class="page-header"><h3>Adding a new field</h3><hr class="notop"></div>
+<p>
+	Maybe you will want to add a new field to your contact form. I will teach you how using an example.</p>
+<p>
+	Let&#39;s say I want to add a website field to the form. I need to edit the <strong>contact.html </strong>file and <strong>contact.php</strong> file.</p>
+<h2>
+	Editing the contact.html file&nbsp;</h2>
+<p>
+	The standard body of the contact.html file looks like this :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+  &lt;!--Contact form start--&gt;
+    &lt;div align=&quot;center&quot;&gt;
+    &lt;section id=&quot;contact&quot;&gt;
+        &lt;h1&gt;Contact us now!&lt;/h1&gt;
+        &lt;p&gt;You can contact us using the contact form below.&lt;/p&gt;
+              &lt;form action=&quot;contact.php&quot; method=&quot;post&quot; class=&quot;cform-form&quot;&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your name&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot; placeholder=&quot;Your Email*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Phone*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;select name=&quot;subject&quot;&gt;
+                          &lt;option value=&quot;Support&quot;&gt;Support&lt;/option&gt;
+                          &lt;option value=&quot;Question&quot;&gt;Question&lt;/option&gt;
+                          &lt;option value=&quot;Report a Bug&quot;&gt;Report a Bug&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;spam&quot; placeholder=&quot;Anti-spam* : 4+3=?&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Enter the code&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;textarea name=&quot;comments&quot; cols=&quot;40&quot; rows=&quot;10&quot; title=&quot;Drop us a line.&quot; placeholder=&quot;Your comment here&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;
+                   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Send message&quot;&gt;&lt;/p&gt;
+              &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;!--Contact form end--&gt;</pre>
+<p>
+	The code for the new HTML section will look a lot like for example the name field :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;website&quot; placeholder=&quot;Your Website*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your website&quot;&gt;&lt;/p&gt;</pre>
+<p>
+	insert this text anywhere you wish. I want this field to display after the email field, so I will implement it between the email and phone fields. The new code will look like this :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+  &lt;!--Contact form start--&gt;
+    &lt;div align=&quot;center&quot;&gt;
+    &lt;section id=&quot;contact&quot;&gt;
+        &lt;h1&gt;Contact us now!&lt;/h1&gt;
+        &lt;p&gt;You can contact us using the contact form below.&lt;/p&gt;
+              &lt;form action=&quot;contact.php&quot; method=&quot;post&quot; class=&quot;cform-form&quot;&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Your Name*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your name&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot; placeholder=&quot;Your Email*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    <strong>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;website&quot; placeholder=&quot;Your Website*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your website&quot;&gt;&lt;/p&gt;</strong>
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;phone&quot; placeholder=&quot;Phone*&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Your email&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;select name=&quot;subject&quot;&gt;
+                          &lt;option value=&quot;Support&quot;&gt;Support&lt;/option&gt;
+                          &lt;option value=&quot;Question&quot;&gt;Question&lt;/option&gt;
+                          &lt;option value=&quot;Report a Bug&quot;&gt;Report a Bug&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;spam&quot; placeholder=&quot;Anti-spam* : 4+3=?&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Enter the code&quot;&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;textarea name=&quot;comments&quot; cols=&quot;40&quot; rows=&quot;10&quot; title=&quot;Drop us a line.&quot; placeholder=&quot;Your comment here&quot;&gt;&lt;/textarea&gt;&lt;/p&gt;
+                   &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Send message&quot;&gt;&lt;/p&gt;
+              &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;!--Contact form end--&gt;</pre>
+<h2>
+	Editing the contact.php file&nbsp;</h2>
+<p>
+	The standard contact.php file looks like :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+&lt;?
+$mailto = &#39;&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#105;&#108;&#112;&#114;&#111;&#118;&#105;&#100;&#101;&#114;&#46;&#99;&#111;&#109;&#39; ;
+$emailsubject = &quot;New message from Your Website&quot; ;
+$formurl = &quot;contact.html&quot; ;
+$errorurl = &quot;error.html&quot; ;
+$thankyouurl = &quot;thankyou.html&quot; ;
+// -------------------- END OF CONFIGURABLE SECTION ---------------
+$name = $_POST[&#39;name&#39;] ;
+$email = $_POST[&#39;email&#39;] ;
+$subject = $_POST[&#39;subject&#39;] ;
+$phone = $_POST[&#39;phone&#39;] ;
+$comments = $_POST[&#39;comments&#39;] ;
+$spam=$_POST[&#39;spam&#39;] ;
+$http_referrer = getenv( &quot;HTTP_REFERER&quot; );
+
+if (!isset($_POST[&#39;email&#39;])) {
+header( &quot;Location: $formurl&quot; );
+exit ;
+}
+if (empty($name) || empty($email) || empty($comments) || $spam!=&quot;7&quot;) {
+   header( &quot;Location: $errorurl&quot; );
+   exit ;
+}
+
+$name = strtok( $name, &quot;\r\n&quot; );
+$email = strtok( $email, &quot;\r\n&quot; );
+$phone = strtok( $phone, &quot;\r\n&quot; );
+if (get_magic_quotes_gpc()) {
+$comments = stripslashes( $comments );
+}
+
+$messageproper =
+
+&quot;---------- Your Website Name message ----------\n\n&quot; . &quot;\nSent by : &quot; . $name . &quot;\nEmail : &quot; . $email . &quot;\nSubject : &quot; . $subject . &quot;\nPhone : &quot; . $phone . &quot;\n\n\nMessage : &quot; . $comments;
+
+mail($mailto, $emailsubject, $messageproper, &quot;From: \&quot;$name\&quot; &lt;$email&gt;\r\nReply-To: \&quot;$name\&quot; &lt;$email&gt;\r\nX-Mailer: chfeedback.php 2.04&quot; );
+
+header( &quot;Location: $thankyouurl&quot; );
+exit ;
+?&gt;</pre>
+<p>
+	The edited contact.php file will be :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+&lt;?
+$mailto = &#39;&#121;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#108;&#64;&#109;&#97;&#105;&#108;&#112;&#114;&#111;&#118;&#105;&#100;&#101;&#114;&#46;&#99;&#111;&#109;&#39; ;
+$emailsubject = &quot;New message from Your Website&quot; ;
+$formurl = &quot;contact.html&quot; ;
+$errorurl = &quot;error.html&quot; ;
+$thankyouurl = &quot;thankyou.html&quot; ;
+
+// -------------------- END OF CONFIGURABLE SECTION ---------------
+
+$name = $_POST[&#39;name&#39;] ;
+$email = $_POST[&#39;email&#39;] ;
+$subject = $_POST[&#39;subject&#39;] ;
+$phone = $_POST[&#39;phone&#39;] ;
+$website = $_POST[&#39;website&#39;] ;
+$comments = $_POST[&#39;comments&#39;] ;
+$spam=$_POST[&#39;spam&#39;] ;
+$http_referrer = getenv( &quot;HTTP_REFERER&quot; );
+
+if (!isset($_POST[&#39;email&#39;])) {
+header( &quot;Location: $formurl&quot; );
+exit ;
+}
+
+if (empty($name) || empty($email) || empty($website) || empty($comments) || $spam!=&quot;7&quot;) {
+   header( &quot;Location: $errorurl&quot; );
+   exit ;
+}
+$name = strtok( $name, &quot;\r\n&quot; );
+$email = strtok( $email, &quot;\r\n&quot; );
+$phone = strtok( $phone, &quot;\r\n&quot; );
+$website = strtok( $website, &quot;\r\n&quot; );
+if (get_magic_quotes_gpc()) {
+$comments = stripslashes( $comments );
+}
+
+$messageproper =
+
+&quot;---------- Your Website Name message ----------\n\n&quot; . &quot;\nSent by : &quot; . $name . &quot;\nEmail : &quot; . $email . &quot;\nSubject : &quot; . $subject . &quot;\nPhone : &quot; . $phone .  &quot;\nWebsite : &quot; . $website . &quot;\n\n\nMessage : &quot; . $comments;
+
+mail($mailto, $emailsubject, $messageproper, &quot;From: \&quot;$name\&quot; &lt;$email&gt;\r\nReply-To: \&quot;$name\&quot; &lt;$email&gt;\r\nX-Mailer: chfeedback.php 2.04&quot; );
+
+header( &quot;Location: $thankyouurl&quot; );
+exit ;
+?&gt;</pre>
+<div>
+	You will notice these changes :&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	This line has been added :&nbsp;</div>
+<div>
+	<pre class="prettyprint lang-php linenums">
+$website = $_POST[&#39;website&#39;] ;</pre>
+	<p>
+		and this :&nbsp;</p>
+</div>
+<pre class="prettyprint lang-php linenums">
+$website = strtok( $website, &quot;\r\n&quot; );</pre>
+<p>
+	Also some other changes have been made. In this row :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+if (empty($name) || empty($email) || empty($comments) || $spam!=&quot;7&quot;) {</pre>
+<p>
+	we have added a verification for the website field. If this field is empty the form will return the error.html file. In plain terms the filed we have added is obligatory. The line now looks like this :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+if (empty($name) || empty($email) || empty($website) || empty($comments) || $spam!=&quot;7&quot;) {</pre>
+<p>
+	You can notice the difference.</p>
+<p>
+	Also in the email message body has been implemented the website field :</p>
+<p>
+	Before :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+$messageproper =
+
+&quot;---------- Your Website Name message ----------\n\n&quot; . &quot;\nSent by : &quot; . $name . &quot;\nEmail : &quot; . $email . &quot;\nSubject : &quot; . $subject . &quot;\nPhone : &quot; . $phone . &quot;\n\n\nMessage : &quot; . $comments;</pre>
+<p>
+	After :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+$messageproper =
+
+&quot;---------- Your Website Name message ----------\n\n&quot; . &quot;\nSent by : &quot; . $name . &quot;\nEmail : &quot; . $email . &quot;\nSubject : &quot; . $subject . &quot;\nPhone : &quot; . $phone .  &quot;\nWebsite : &quot; . $website . &quot;\n\n\nMessage : &quot; . $comments;</pre>
+<p>
+	These are the changes that need to be made when you add a new field. If the field you are adding doesn&#39;t need to be mandatory, skip editing this line :&nbsp;</p>
+<pre class="prettyprint lang-php linenums">
+if (empty($name) || empty($email) || empty($comments) || $spam!=&quot;7&quot;) {</pre>
+</section>
+<section id="captcha">
+	<div class="page-header"><h3>Captcha</h3><hr class="notop"></div>
+<p>
+	This form includes a really simple CAPTCHA for anti-spam protection in the form of a math question. You can change this in anyway you wish.</p>
+<p>
+	A particulary effective captcha style is asking the user to write the current year. It might seem really basic, but it actually does work.</p>
+<p>
+	<strong>Do how to you edit the CAPTCHA ?</strong></p>
+<p>
+	You need to edit the contact.html file and the contact.php file.</p>
+<p>
+	In the contact.html file search for this line :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;spam&quot; placeholder=&quot;Anti-spam* : 4+3=?&quot; class=&quot;cform-text&quot; size=&quot;40&quot; title=&quot;Enter the code&quot;&gt;&lt;/p&gt;</pre>
+<p>
+	Edit <strong>placeholder=&quot;Anti-spam* : 4+3=?&quot;&nbsp;</strong> with anything you wish, in this example :&nbsp;<strong>placeholder=&quot;Anti-spam* : What year is it&quot;</strong></p>
+<p>
+	In the contact.php file search for this line :&nbsp;</p>
+<pre class="prettyprint lang-html linenums">
+if (empty($name) || empty($email) || empty($website) || empty($comments) || $spam!=&quot;7&quot;) {</pre>
+<p>
+	Edit&nbsp;<strong><span style="line-height: 19px;">$spam!=&quot;7&quot;</span></strong><span style="line-height: 19px;">&nbsp;; actually you only need to edit the <strong>7.</strong> Replace it with the answer to the question. In this case <strong>2013</strong>. So the new value will be :&nbsp;</span><strong><span style="line-height: 19px;">$spam!=&quot;2013&quot;</span></strong></p>
+<p>
+	<span style="line-height: 19px;">That is it.</span></p>
+</section>
+
+	</div>
+</body>
+</html>

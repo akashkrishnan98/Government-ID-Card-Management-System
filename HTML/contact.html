@@ -1,0 +1,41 @@
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>3D Contact Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a responsive Contact Form available in multiple colors">
+    <meta name="author" content="">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    <!--Contact form start-->
+    <div align="center">
+    <section id="contact">
+        <h1>Contact us now!</h1>
+        <p>You can contact us using the contact form below.</p>
+              <form action="contact.php" method="post" class="cform-form">
+                    <p><input type="text" name="name" placeholder="Your Name*" class="cform-text" size="40" title="Your name"></p>
+                    <p><input type="text" name="email" placeholder="Your Email*" class="cform-text" size="40" title="Your email"></p>
+                    <p><input type="text" name="phone" placeholder="Phone*" class="cform-text" size="40" title="Your email"></p>
+                    <p><select name="subject">
+                          <option value="Support">Support</option>
+                          <option value="Question">Question</option>
+                          <option value="Report a Bug">Report a Bug</option>
+                        </select>
+                    </p>
+                    <p><input type="text" name="spam" placeholder="Anti-spam* : 4+3=?" class="cform-text" size="40" title="Enter the code"></p>
+                    <p><textarea name="comments" cols="40" rows="10" title="Drop us a line." placeholder="Your comment here"></textarea></p>
+                   <p><input type="submit" value="Send message"></p>
+              </form>
+    </section>
+  </div>
+  <!--Contact form end-->
+</body>
+</html>
